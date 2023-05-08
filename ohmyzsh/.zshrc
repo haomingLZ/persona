@@ -1,3 +1,4 @@
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -77,24 +78,24 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  colored-man-pages
-  command-not-found
-  common-aliases
-  cp
-  terminitor
-  z
-  sudo
-  safe-paste
-  zsh-syntax-highlighting
-  zsh-autosuggestions
-  zsh-history-substring-search
-  extract
-  web-search
-  last-working-dir
-  thefuck
-  )
+# plugins=(
+#   git
+#   colored-man-pages
+#   command-not-found
+#   common-aliases
+#   cp
+#   terminitor
+#   z
+#   sudo
+#   safe-paste
+#   zsh-syntax-highlighting
+#   zsh-autosuggestions
+#   zsh-history-substring-search
+#   extract
+#   web-search
+# #   last-working-dir
+#   thefuck
+#   )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -154,3 +155,51 @@ alias sourcez='source ~/.zshrc'
 
 
 #alias end
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+### End of Zinit's installer chunk
+zinit ice lucid wait='1'
+zinit snippet OMZ::plugins/git/git.plugin.zsh
+zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
+zinit snippet OMZ::plugins/command-not-found/command-not-found.plugin.zsh
+zinit snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
+zinit snippet OMZ::plugins/cp/cp.plugin.zsh
+zinit ice as="completion"
+zinit snippet OMZ::plugins/terminitor/_terminitor
+zinit snippet OMZ::plugins/z/z.plugin.zsh
+zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
+zinit snippet OMZ::plugins/safe-paste/safe-paste.plugin.zsh
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma/fast-syntax-highlighting
+zinit snippet OMZ::plugins/extract/extract.plugin.zsh
+zinit snippet OMZ::plugins/web-search/web-search.plugin.zsh
+zinit snippet OMZ::plugins/thefuck/thefuck.plugin.zsh
+
+# plugins=(
+#   git
+#   colored-man-pages
+#   command-not-found
+#   common-aliases
+#   cp
+#   terminitor
+#   z
+#   sudo
+#   safe-paste
+#   zsh-syntax-highlighting
+#   zsh-autosuggestions
+#   zsh-history-substring-search
+#   extract
+#   web-search
+# #   last-working-dir
+#   thefuck
+#   )
