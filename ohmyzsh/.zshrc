@@ -40,7 +40,7 @@ ZSH_THEME="robbyrussell"
 # zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -96,6 +96,8 @@ ZSH_THEME="robbyrussell"
 # #   last-working-dir
 #   thefuck
 #   )
+
+
 
 source $ZSH/oh-my-zsh.sh
 
@@ -154,6 +156,7 @@ alias sourcez='source ~/.zshrc'
 
 
 
+
 #alias end
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -168,7 +171,16 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
-zinit ice lucid wait='1'
+zinit snippet OMZ::lib/clipboard.zsh
+zinit snippet OMZ::lib/completion.zsh
+zinit snippet OMZ::lib/history.zsh
+# zinit snippet OMZ::lib/key-bindings.zsh
+zinit snippet OMZ::lib/git.zsh
+zinit snippet OMZ::lib/theme-and-appearance.zsh
+zinit ice blockf
+zinit light zsh-users/zsh-autosuggestions
+
+zinit ice lucid wait='!0'
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 zinit snippet OMZ::plugins/command-not-found/command-not-found.plugin.zsh
@@ -179,11 +191,11 @@ zinit snippet OMZ::plugins/terminitor/_terminitor
 zinit snippet OMZ::plugins/z/z.plugin.zsh
 zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
 zinit snippet OMZ::plugins/safe-paste/safe-paste.plugin.zsh
-zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/fast-syntax-highlighting
 zinit snippet OMZ::plugins/extract/extract.plugin.zsh
 zinit snippet OMZ::plugins/web-search/web-search.plugin.zsh
 zinit snippet OMZ::plugins/thefuck/thefuck.plugin.zsh
+bindkey  '^[^[' sudo-command-line
 
 # plugins=(
 #   git
