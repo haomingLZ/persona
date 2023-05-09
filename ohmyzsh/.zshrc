@@ -1,4 +1,4 @@
-
+# zmodload zsh/zprof
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -180,7 +180,7 @@ zinit snippet OMZ::lib/theme-and-appearance.zsh
 zinit ice blockf
 zinit light zsh-users/zsh-autosuggestions
 
-zinit ice lucid wait='!0'
+zinit ice lucid wait='1'
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 zinit snippet OMZ::plugins/command-not-found/command-not-found.plugin.zsh
@@ -197,21 +197,5 @@ zinit snippet OMZ::plugins/web-search/web-search.plugin.zsh
 zinit snippet OMZ::plugins/thefuck/thefuck.plugin.zsh
 bindkey  '^[^[' sudo-command-line
 
-# plugins=(
-#   git
-#   colored-man-pages
-#   command-not-found
-#   common-aliases
-#   cp
-#   terminitor
-#   z
-#   sudo
-#   safe-paste
-#   zsh-syntax-highlighting
-#   zsh-autosuggestions
-#   zsh-history-substring-search
-#   extract
-#   web-search
-# #   last-working-dir
-#   thefuck
-#   )
+
+# zprof
